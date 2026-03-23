@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<meta property="og:image" content="https://zeropayai.netlify.app/og-banner.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit a Free AI Tool — ZeroPayAI</title>
+  <meta name="description" content="Know a great free AI tool? Submit it to ZeroPayAI and get it listed in front of thousands of users." />
+  <link rel="canonical" href="zeropayai.netlify.app" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="about.html">About</a>
+      <a href="submit.html" class="active">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="form-container">
+      <h1>Submit a Free AI Tool</h1>
+      <p class="subtitle">Know a great free AI tool we're missing? List it here — it's completely free.</p>
+
+      <div class="form-card">
+        <form id="submit-form">
+          <div class="form-group">
+            <label for="tool_name">Tool Name *</label>
+            <input type="text" id="tool_name" name="tool_name" placeholder="e.g. Notion AI" required />
+          </div>
+          <div class="form-group">
+            <label for="tool_url">Website URL *</label>
+            <input type="url" id="tool_url" name="tool_url" placeholder="https://..." required />
+          </div>
+          <div class="form-group">
+            <label for="tool-category">Category *</label>
+            <select id="tool-category" name="category" required>
+              <option value="" disabled selected>Select a category</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tagline">Short Tagline *</label>
+            <input type="text" id="tagline" name="tagline" placeholder="One line that sells it — max 80 chars" maxlength="80" required />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="What does it do? Who is it for? What's the free tier like?"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="free_tier">Free Tier Details *</label>
+            <input type="text" id="free_tier" name="free_tier" placeholder="e.g. Free forever, 10K chars/mo" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email (optional)</label>
+            <input type="email" id="email" name="email" placeholder="We'll notify you when it's listed" />
+          </div>
+          <button type="submit" class="submit-btn">Submit Tool →</button>
+          <div class="success-msg" id="success-msg">✓ Submitted! We'll review and add your tool within 48 hours.</div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

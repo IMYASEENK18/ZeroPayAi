@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<meta property="og:image" content="https://zeropayai.netlify.app/og-banner.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: dynamically updated by app.js via JS -->
+  <title>Free AI Tool Review — ZeroPayAI</title>
+  <meta name="description" content="Detailed review, free tier info, and direct link for this AI tool on ZeroPayAI." />
+  <link rel="canonical" href="zeropayai.netlify.app" />
+
+  <!-- Open Graph: updated dynamically by JS -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ZeroPayAI" />
+  <meta id="og-title" property="og:title" content="Free AI Tool — ZeroPayAI" />
+  <meta id="og-desc" property="og:description" content="Check out this free AI tool on ZeroPayAI." />
+  <meta id="og-url" property="og:url" content="https://www.zeropayai.com/tool-detail.html" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="about.html">About</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="detail-container">
+
+      <!-- AdSense Slot — Top -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <!-- Paste your AdSense <ins> tag here after approval -->
+      </div>
+
+      <!-- Breadcrumb (SEO) -->
+      <nav aria-label="Breadcrumb" style="margin-bottom:20px;font-size:0.82rem;color:var(--muted);">
+        <a href="index.html" style="color:var(--muted);">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <a href="tools.html" style="color:var(--muted);">Tools</a>
+        <span style="margin:0 6px;">›</span>
+        <span id="breadcrumb-name" style="color:var(--text);">Tool Detail</span>
+      </nav>
+
+      <!-- Dynamic content injected here by app.js -->
+      <div id="detail-root"></div>
+
+      <!-- AdSense Slot — Below tool detail -->
+      <div style="text-align:center;margin-top:40px;">
+        <!-- Paste your AdSense <ins> tag here after approval -->
+      </div>
+
+      <!-- Related Tools Section -->
+      <div style="margin-top:48px;">
+        <div class="section-header">
+          <h2 class="section-title" style="font-size:1.2rem;">🔗 More Free AI Tools</h2>
+          <a href="tools.html" class="see-all">Browse all →</a>
+        </div>
+        <div class="tools-grid" id="related-grid"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+      <a href="submit.html">Submit Tool</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Schema: SoftwareApplication — injected dynamically by app.js -->
+  <script id="tool-schema" type="application/ld+json"></script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<meta property="og:image" content="https://zeropayai.netlify.app/og-banner.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>ZeroPayAI — Best Free AI Tools Directory 2026</title>
+  <meta name="description" content="Discover 20+ of the best free AI tools for writing, design, video, coding, and more. All tools have free tiers — no credit card needed." />
+  <meta name="keywords" content="free AI tools, best free AI tools 2026, AI tools directory, free chatbot, free AI writing tool" />
+  <link rel="canonical" href="zeropayai.netlify.app" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ZeroPayAI — Best Free AI Tools Directory 2026" />
+  <meta property="og:description" content="Discover 20+ of the best free AI tools. All with free tiers — no credit card needed." />
+  <meta property="og:url" content="https://www.zeropayai.com/" />
+  <meta property="og:site_name" content="ZeroPayAI" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ZeroPayAI",
+    "url": "https://www.zeropayai.com",
+    "description": "The best directory of free AI tools with free tiers.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.zeropayai.com/tools.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cookie Banner (AdSense requirement) -->
+  <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a24;border-top:1px solid rgba(255,255,255,0.08);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;z-index:999;font-size:0.83rem;color:#7070a0;">
+    <span>We use cookies to improve your experience and show relevant ads. <a href="privacy.html" style="color:#00ff88;">Privacy Policy</a></span>
+    <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookie_ok','1')" style="background:#00ff88;color:#000;border:none;border-radius:99px;padding:7px 18px;font-weight:700;cursor:pointer;font-size:0.82rem;">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookie_ok')) document.getElementById('cookie-banner').style.display='none';</script>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="about.html">About</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-badge">🚀 Updated Weekly</div>
+      <h1>Find the Best<br><span class="highlight">Free AI Tools</span></h1>
+      <p>Handpicked directory of the most powerful AI tools with free tiers — no credit card, no paywalls.</p>
+      <div class="hero-search">
+        <input type="text" id="hero-search-input" placeholder="Search — e.g. video editor, chatbot, image generator..." aria-label="Search AI tools" />
+        <button id="hero-search-btn">Search</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Free AI Tools</div></div>
+        <div class="stat"><div class="stat-num">9</div><div class="stat-label">Categories</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free Tiers Only</div></div>
+      </div>
+    </div>
+
+    <!-- AdSense Ad Slot 1 (below hero) -->
+    <div style="text-align:center;padding:8px 5%;max-width:1200px;margin:0 auto;">
+      <!-- Replace with your AdSense ad unit code after approval -->
+      <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto"></ins> -->
+    </div>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">⭐ Top Rated Free AI Tools</h2>
+        <a href="tools.html" class="see-all">Browse all tools →</a>
+      </div>
+      <div class="tools-grid" id="featured-grid"></div>
+    </section>
+
+    <!-- AdSense Ad Slot 2 (between sections) -->
+    <div style="text-align:center;padding:8px 5%;max-width:1200px;margin:0 auto;">
+      <!-- <ins class="adsbygoogle" ...></ins> -->
+    </div>
+
+    <section>
+      <div class="newsletter">
+        <h2>New Free AI Tools. Every Week.</h2>
+        <p>Get the best free AI tools delivered to your inbox. No spam, unsubscribe anytime.</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+      <a href="submit.html">Submit Tool</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

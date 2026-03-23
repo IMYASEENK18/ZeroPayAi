@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+<meta property="og:image" content="https://zeropayai.netlify.app/og-banner.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — ZeroPayAI</title>
+  <meta name="description" content="Get in touch with the ZeroPayAI team. Submit a tool, report an issue, or just say hello." />
+  <link rel="canonical" href="zeropayai.netlify.app" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .content-page { max-width: 640px; margin: 0 auto; padding: 48px 5%; }
+    .content-page h1 { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; margin-bottom: 8px; }
+    .content-page .subtitle { color: var(--muted); margin-bottom: 36px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="about.html">About</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="content-page">
+      <h1>Contact Us</h1>
+      <p class="subtitle">Questions, suggestions, or want to submit a tool? We'd love to hear from you.</p>
+
+      <div class="form-card">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="c_name">Your Name *</label>
+            <input type="text" id="c_name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="c_email">Email Address *</label>
+            <input type="email" id="c_email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="c_subject">Subject *</label>
+            <select id="c_subject" name="subject" required>
+              <option value="" disabled selected>Select a subject</option>
+              <option>Submit / Suggest a Tool</option>
+              <option>Report an Issue</option>
+              <option>Advertising Inquiry</option>
+              <option>General Question</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="c_message">Message *</label>
+            <textarea id="c_message" name="message" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message →</button>
+          <div class="success-msg" id="contact-success">✓ Message sent! We'll get back to you within 48 hours.</div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      const data = new FormData(this);
+      try {
+        const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          this.reset();
+          document.getElementById('contact-success').style.display = 'block';
+        }
+      } catch {}
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    });
+  </script>
+</body>
+</html>
