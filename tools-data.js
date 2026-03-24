@@ -51,6 +51,8 @@ const TOOLS = [
     badge: "Free Unlimited",
     free_tier: "Unlimited free"
   },
+
+  // ─── DESIGN ───
   {
     id: "canva-ai",
     name: "Canva AI",
@@ -78,6 +80,47 @@ const TOOLS = [
     free_tier: "Free (low-res)"
   },
   {
+    id: "adobe-firefly",
+    name: "Adobe Firefly",
+    tagline: "Adobe's free AI image generator — commercial safe",
+    description: "Adobe Firefly lets you generate stunning images, text effects, and recolor vectors using AI. Built directly into Adobe Express. Free tier gives 25 generative credits per month and all outputs are commercially safe to use.",
+    category: "Design",
+    tags: ["design", "images", "text effects", "adobe"],
+    url: "https://firefly.adobe.com",
+    rating: 4.7,
+    reviews: 8100,
+    badge: "Free",
+    free_tier: "Free (25 credits/mo)"
+  },
+  {
+    id: "photopea",
+    name: "Photopea",
+    tagline: "Free Photoshop alternative that runs in your browser",
+    description: "Photopea is a powerful free online photo editor that works just like Photoshop. Supports PSD, XCF, Sketch files and more. No download needed, runs entirely in the browser. Perfect for designers on a budget.",
+    category: "Design",
+    tags: ["design", "photo editing", "photoshop alternative"],
+    url: "https://photopea.com",
+    rating: 4.6,
+    reviews: 9200,
+    badge: "Free Unlimited",
+    free_tier: "Unlimited free"
+  },
+  {
+    id: "looka",
+    name: "Looka",
+    tagline: "AI logo maker — generate a professional logo in seconds",
+    description: "Looka uses AI to generate professional logo designs based on your brand name and style preferences. Browse hundreds of AI-generated logo options instantly. Free to design and preview, pay only when you download.",
+    category: "Design",
+    tags: ["logo", "branding", "design", "ai"],
+    url: "https://looka.com",
+    rating: 4.5,
+    reviews: 6300,
+    badge: "Trending",
+    free_tier: "Free to design"
+  },
+
+  // ─── IMAGE GENERATION ───
+  {
     id: "ideogram",
     name: "Ideogram",
     tagline: "AI image generator that actually gets text right",
@@ -90,6 +133,47 @@ const TOOLS = [
     badge: "Trending",
     free_tier: "Free (10/day)"
   },
+  {
+    id: "leonardo-ai",
+    name: "Leonardo AI",
+    tagline: "Professional AI image generation with 150 free credits daily",
+    description: "Leonardo AI generates stunning high quality images for art, game assets, and marketing. Free plan gives 150 tokens per day — one of the most generous free tiers of any AI image generator available.",
+    category: "Image Generation",
+    tags: ["images", "art", "game assets", "generation"],
+    url: "https://leonardo.ai",
+    rating: 4.8,
+    reviews: 9400,
+    badge: "Most Popular",
+    free_tier: "Free (150 tokens/day)"
+  },
+  {
+    id: "playground-ai",
+    name: "Playground AI",
+    tagline: "500 free AI images per day — most generous free tier",
+    description: "Playground AI offers one of the most generous free tiers of any image generator — 500 images per day completely free. Supports multiple models including Stable Diffusion and DALL-E. Great for designers and artists.",
+    category: "Image Generation",
+    tags: ["images", "art", "stable diffusion", "free unlimited"],
+    url: "https://playground.com",
+    rating: 4.7,
+    reviews: 6800,
+    badge: "Free Unlimited",
+    free_tier: "Free (500 imgs/day)"
+  },
+  {
+    id: "adobe-express",
+    name: "Adobe Express",
+    tagline: "Free AI image generator + graphic design in one place",
+    description: "Adobe Express combines AI image generation with graphic design tools. Create social media posts, logos, flyers, and more with AI assistance. Free plan includes generous AI credits and hundreds of templates.",
+    category: "Image Generation",
+    tags: ["images", "design", "social media", "templates"],
+    url: "https://express.adobe.com",
+    rating: 4.6,
+    reviews: 7500,
+    badge: "Free",
+    free_tier: "Free (limited credits)"
+  },
+
+  // ─── VIDEO ───
   {
     id: "capcut",
     name: "CapCut",
@@ -117,6 +201,47 @@ const TOOLS = [
     free_tier: "Free (125 credits/mo)"
   },
   {
+    id: "pika",
+    name: "Pika Labs",
+    tagline: "Text to video AI — generate cinematic clips for free",
+    description: "Pika Labs lets you generate and edit videos using text prompts. Create cinematic AI videos from scratch or transform existing images into videos. Free plan includes limited generation credits monthly.",
+    category: "Video",
+    tags: ["video", "text to video", "generation", "ai"],
+    url: "https://pika.art",
+    rating: 4.6,
+    reviews: 4700,
+    badge: "Trending",
+    free_tier: "Free (limited credits)"
+  },
+  {
+    id: "clipchamp",
+    name: "Clipchamp",
+    tagline: "Microsoft's free AI video editor built into Windows",
+    description: "Clipchamp is Microsoft's free video editor with AI features including auto captions, text to speech, background removal and templates. Built into Windows 11 and available as a web app. Completely free.",
+    category: "Video",
+    tags: ["video editing", "captions", "microsoft", "windows"],
+    url: "https://clipchamp.com",
+    rating: 4.5,
+    reviews: 6800,
+    badge: "Free Unlimited",
+    free_tier: "Unlimited free"
+  },
+  {
+    id: "veed",
+    name: "VEED.io",
+    tagline: "Online AI video editor with auto subtitles and translation",
+    description: "VEED.io is a powerful browser-based video editor with AI auto subtitles, translation, screen recording, and background removal. Free plan includes watermarked exports — great for quick social media edits.",
+    category: "Video",
+    tags: ["video editing", "subtitles", "translation", "social media"],
+    url: "https://veed.io",
+    rating: 4.6,
+    reviews: 7200,
+    badge: "Trending",
+    free_tier: "Free (watermark)"
+  },
+
+  // ─── AUDIO ───
+  {
     id: "elevenlabs",
     name: "ElevenLabs",
     tagline: "AI voice cloning and text-to-speech that sounds human",
@@ -143,6 +268,47 @@ const TOOLS = [
     free_tier: "Free (50 credits/day)"
   },
   {
+    id: "mubert",
+    name: "Mubert",
+    tagline: "AI music generator for content creators — free tier",
+    description: "Mubert generates royalty-free AI music for videos, podcasts, and streams in seconds. Just pick mood, genre, and duration. Free plan gives 25 tracks per month — perfect for YouTubers and content creators.",
+    category: "Audio",
+    tags: ["music", "royalty free", "content creators", "generation"],
+    url: "https://mubert.com",
+    rating: 4.5,
+    reviews: 3800,
+    badge: "Free",
+    free_tier: "Free (25 tracks/mo)"
+  },
+  {
+    id: "aiva",
+    name: "AIVA",
+    tagline: "AI composer that creates original music for your projects",
+    description: "AIVA is an AI music composition tool that creates original soundtracks for games, films, and videos. Free plan lets you generate up to 3 downloads per month with AIVA watermark. Great for indie creators.",
+    category: "Audio",
+    tags: ["music", "composition", "soundtrack", "generation"],
+    url: "https://aiva.ai",
+    rating: 4.6,
+    reviews: 4100,
+    badge: "Free",
+    free_tier: "Free (3 downloads/mo)"
+  },
+  {
+    id: "adobe-podcast",
+    name: "Adobe Podcast",
+    tagline: "AI audio enhancer that makes your voice sound studio quality",
+    description: "Adobe Podcast's Enhance Speech tool removes background noise and improves audio quality instantly. Upload any voice recording and get back crystal clear studio-quality audio. Completely free to use.",
+    category: "Audio",
+    tags: ["audio", "podcast", "voice enhancement", "noise removal"],
+    url: "https://podcast.adobe.com",
+    rating: 4.8,
+    reviews: 5600,
+    badge: "Editor's Pick",
+    free_tier: "Free forever"
+  },
+
+  // ─── WRITING ───
+  {
     id: "grammarly",
     name: "Grammarly",
     tagline: "AI writing assistant that catches every mistake",
@@ -168,6 +334,8 @@ const TOOLS = [
     badge: "Free",
     free_tier: "Free (125 words limit)"
   },
+
+  // ─── RESEARCH ───
   {
     id: "perplexity",
     name: "Perplexity AI",
@@ -195,6 +363,47 @@ const TOOLS = [
     free_tier: "100% Free"
   },
   {
+    id: "consensus",
+    name: "Consensus",
+    tagline: "AI search engine for scientific research papers",
+    description: "Consensus searches millions of scientific research papers and gives you AI-summarized answers backed by real studies. Perfect for students and researchers. Free plan gives 20 searches per day.",
+    category: "Research",
+    tags: ["research", "science", "papers", "citations"],
+    url: "https://consensus.app",
+    rating: 4.7,
+    reviews: 4200,
+    badge: "Editor's Pick",
+    free_tier: "Free (20 searches/day)"
+  },
+  {
+    id: "elicit",
+    name: "Elicit",
+    tagline: "AI research assistant that summarizes academic papers",
+    description: "Elicit automates research workflows — find relevant papers, extract key findings, and summarize research in seconds. Trained specifically on academic literature. Free plan includes 5000 credits to get started.",
+    category: "Research",
+    tags: ["research", "academic", "papers", "summarize"],
+    url: "https://elicit.com",
+    rating: 4.6,
+    reviews: 3500,
+    badge: "Trending",
+    free_tier: "Free (5000 credits)"
+  },
+  {
+    id: "explainpaper",
+    name: "Explainpaper",
+    tagline: "Upload a research paper and ask AI to explain it simply",
+    description: "Explainpaper lets you upload any academic paper and highlight confusing sections to get simple AI explanations. Perfect for students trying to understand complex research. Free tier available with daily limits.",
+    category: "Research",
+    tags: ["research", "papers", "students", "explain"],
+    url: "https://explainpaper.com",
+    rating: 4.5,
+    reviews: 2800,
+    badge: "Free",
+    free_tier: "Free (limited)"
+  },
+
+  // ─── CODING ───
+  {
     id: "github-copilot",
     name: "GitHub Copilot Free",
     tagline: "AI code completion inside VS Code — now free",
@@ -220,6 +429,8 @@ const TOOLS = [
     badge: "Free Unlimited",
     free_tier: "Unlimited free"
   },
+
+  // ─── PRODUCTIVITY ───
   {
     id: "otter",
     name: "Otter.ai",
@@ -258,6 +469,45 @@ const TOOLS = [
     reviews: 6300,
     badge: "Editor's Pick",
     free_tier: "Free (400 credits)"
+  },
+  {
+    id: "taskade",
+    name: "Taskade",
+    tagline: "AI project management and team collaboration for free",
+    description: "Taskade combines AI with project management, mind mapping, and team collaboration. AI can generate tasks, summarize projects, and automate workflows. Free plan is very generous with unlimited projects.",
+    category: "Productivity",
+    tags: ["productivity", "project management", "collaboration", "ai"],
+    url: "https://taskade.com",
+    rating: 4.6,
+    reviews: 4900,
+    badge: "Free",
+    free_tier: "Free forever"
+  },
+  {
+    id: "tldv",
+    name: "tl;dv",
+    tagline: "AI meeting recorder that summarizes your calls for free",
+    description: "tl;dv records, transcribes and summarizes Google Meet and Zoom calls with AI. Get instant meeting summaries, action items, and searchable transcripts. Free plan includes unlimited recordings.",
+    category: "Productivity",
+    tags: ["meetings", "transcription", "zoom", "summarize"],
+    url: "https://tldv.io",
+    rating: 4.7,
+    reviews: 5300,
+    badge: "Trending",
+    free_tier: "Free (unlimited recordings)"
+  },
+  {
+    id: "tome",
+    name: "Tome",
+    tagline: "AI presentation and storytelling tool — free to start",
+    description: "Tome generates beautiful AI-powered presentations and narratives from a single prompt. Great for pitches, reports, and storytelling. Free plan includes 500 AI credits to create your first presentations.",
+    category: "Productivity",
+    tags: ["presentations", "storytelling", "slides", "ai"],
+    url: "https://tome.app",
+    rating: 4.5,
+    reviews: 4100,
+    badge: "Free",
+    free_tier: "Free (500 credits)"
   }
 ];
 
