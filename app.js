@@ -1,4 +1,24 @@
 // ─── Utility: get badge class ───
+
+
+// ─── THEME TOGGLE ───
+function toggleTheme() {
+  const isLight = document.body.classList.toggle('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  document.getElementById('theme-toggle').textContent = isLight ? '☀️' : '🌙';
+}
+
+// Apply saved theme on page load
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.classList.add('light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = '☀️';
+    });
+  }
+})();
 function badgeClass(badge) {
   if (!badge) return 'badge-free';
   const b = badge.toLowerCase();
