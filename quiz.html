@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Which Free AI Tool Is Right For You? — ZeroPayAI Quiz</title>
+  <meta name="description" content="Take our free AI tool quiz and find the perfect free AI tool for your needs in 60 seconds. No sign up required." />
+  <link rel="canonical" href="https://zeropayai.netlify.app/quiz.html" />
+  <meta name="google-site-verification" content="KK3UUOpEy3ErOD5eJbiTCEjrXGXTsG2acw9eWnKcE2Q" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .quiz-container { max-width: 680px; margin: 0 auto; padding: 48px 5%; }
+    .quiz-progress { background: var(--bg3); border-radius: 99px; height: 6px; margin-bottom: 36px; overflow: hidden; }
+    .quiz-progress-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 99px; transition: width 0.4s ease; }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeUp 0.3s ease; }
+    .quiz-q { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .quiz-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
+    .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .quiz-option { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px 16px; cursor: pointer; transition: all 0.2s; text-align: left; }
+    .quiz-option:hover { border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.04); }
+    .quiz-option.selected { border-color: var(--accent); background: rgba(0,255,136,0.08); }
+    .opt-emoji { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+    .opt-label { font-family: var(--font-head); font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .opt-desc { color: var(--muted); font-size: 0.78rem; line-height: 1.4; }
+    .quiz-nav { display: flex; justify-content: space-between; margin-top: 28px; gap: 12px; }
+    .quiz-btn { flex: 1; padding: 13px; border-radius: 99px; font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: opacity 0.2s; border: none; }
+    .quiz-btn.primary { background: var(--accent); color: #000; }
+    .quiz-btn.secondary { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .quiz-btn:hover { opacity: 0.88; }
+    .quiz-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .result-card { background: var(--card-bg); border: 1px solid rgba(0,255,136,0.25); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; }
+    .result-rank { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px; }
+    .result-name { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .result-tagline { color: var(--muted); margin-bottom: 16px; }
+    .result-why { background: var(--bg3); border-radius: 10px; padding: 14px 16px; font-size: 0.88rem; color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+    .result-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #000; font-family: var(--font-head); font-weight: 700; padding: 11px 24px; border-radius: 99px; font-size: 0.9rem; transition: opacity 0.2s; }
+    .result-btn:hover { opacity: 0.88; }
+    .step-counter { font-size: 0.82rem; color: var(--muted); margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+      <button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid rgba(255,255,255,0.12);border-radius:99px;padding:7px 14px;cursor:pointer;font-size:1rem;color:var(--text);transition:all 0.2s;">🌙</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="quiz-container">
+      <div style="text-align:center;margin-bottom:36px;">
+        <div style="font-size:3rem;margin-bottom:12px;">🤖</div>
+        <h1 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Find Your Perfect Free AI Tool</h1>
+        <p style="color:var(--muted);">Answer 5 quick questions — we'll match you with the best free AI tool for your needs.</p>
+      </div>
+
+      <div class="quiz-progress">
+        <div class="quiz-progress-bar" id="progress-bar" style="width:0%"></div>
+      </div>
+
+      <div id="quiz-steps">
+
+        <!-- Step 1 -->
+        <div class="quiz-step active" id="step-1">
+          <div class="step-counter">Question 1 of 5</div>
+          <div class="quiz-q">What do you mainly want AI to help you with?</div>
+          <div class="quiz-sub">Pick the one that fits best</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this, 'writing')">
+              <span class="opt-emoji">✍️</span>
+              <div class="opt-label">Writing & Content</div>
+              <div class="opt-desc">Essays, emails, blogs, copywriting</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'design')">
+              <span class="opt-emoji">🎨</span>
+              <div class="opt-label">Design & Visuals</div>
+              <div class="opt-desc">Images, graphics, logos, videos</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'coding')">
+              <span class="opt-emoji">💻</span>
+              <div class="opt-label">Coding & Development</div>
+              <div class="opt-desc">Code completion, debugging, projects</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'research')">
+              <span class="opt-emoji">🔍</span>
+              <div class="opt-label">Research & Learning</div>
+              <div class="opt-desc">Study, papers, fact-checking</div>
+            </div>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn primary" onclick="nextStep()" id="next-1" disabled>Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step" id="step-2">
+          <div class="step-counter">Question 2 of 5</div>
+          <div class="quiz-q">Who are you?</div>
+          <div class="quiz-sub">This helps us personalize your recommendation</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this, 'student')">
+              <span class="opt-emoji">🎓</span>
+              <div class="opt-label">Student</div>
+              <div class="opt-desc">School, university, assignments</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'freelancer')">
+              <span class="opt-emoji">💼</span>
+              <div class="opt-label">Freelancer</div>
+              <div class="opt-desc">Self-employed, clients, gigs</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'creator')">
+              <span class="opt-emoji">🎬</span>
+              <div class="opt-label">Content Creator</div>
+              <div class="opt-desc">YouTube, TikTok, Instagram</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'professional')">
+              <span class="opt-emoji">🏢</span>
+              <div class="opt-label">Professional</div>
+              <div class="opt-desc">Office work, business, corporate</div>
+            </div>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn secondary" onclick="prevStep()">← Back</button>
+            <button class="quiz-btn primary" onclick="nextStep()" id="next-2" disabled>Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="quiz-step" id="step-3">
+          <div class="step-counter">Question 3 of 5</div>
+          <div class="quiz-q">How comfortable are you with technology?</div>
+          <div class="quiz-sub">Be honest — there's no wrong answer!</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this, 'beginner')">
+              <span class="opt-emoji">🌱</span>
+              <div class="opt-label">Beginner</div>
+              <div class="opt-desc">I prefer simple, easy-to-use tools</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'intermediate')">
+              <span class="opt-emoji">⚡</span>
+              <div class="opt-label">Intermediate</div>
+              <div class="opt-desc">I can figure things out with some help</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'advanced')">
+              <span class="opt-emoji">🚀</span>
+              <div class="opt-label">Advanced</div>
+              <div class="opt-desc">I love powerful tools with lots of options</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'developer')">
+              <span class="opt-emoji">🛠️</span>
+              <div class="opt-label">Developer</div>
+              <div class="opt-desc">I build things and use APIs</div>
+            </div>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn secondary" onclick="prevStep()">← Back</button>
+            <button class="quiz-btn primary" onclick="nextStep()" id="next-3" disabled>Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="quiz-step" id="step-4">
+          <div class="step-counter">Question 4 of 5</div>
+          <div class="quiz-q">What's most important to you in a free AI tool?</div>
+          <div class="quiz-sub">Pick your top priority</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this, 'quality')">
+              <span class="opt-emoji">💎</span>
+              <div class="opt-label">Highest Quality Output</div>
+              <div class="opt-desc">Best results, even if limits are lower</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'unlimited')">
+              <span class="opt-emoji">♾️</span>
+              <div class="opt-label">Unlimited Usage</div>
+              <div class="opt-desc">No daily limits, use as much as I want</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'speed')">
+              <span class="opt-emoji">⚡</span>
+              <div class="opt-label">Speed & Simplicity</div>
+              <div class="opt-desc">Fast results with minimal effort</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'variety')">
+              <span class="opt-emoji">🎯</span>
+              <div class="opt-label">All-in-One Tool</div>
+              <div class="opt-desc">Does many things in one place</div>
+            </div>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn secondary" onclick="prevStep()">← Back</button>
+            <button class="quiz-btn primary" onclick="nextStep()" id="next-4" disabled>Next →</button>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="quiz-step" id="step-5">
+          <div class="step-counter">Question 5 of 5</div>
+          <div class="quiz-q">How often will you use this AI tool?</div>
+          <div class="quiz-sub">This helps us find the right free tier for you</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this, 'daily')">
+              <span class="opt-emoji">📅</span>
+              <div class="opt-label">Every Day</div>
+              <div class="opt-desc">It'll be part of my daily workflow</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'weekly')">
+              <span class="opt-emoji">📆</span>
+              <div class="opt-label">A Few Times a Week</div>
+              <div class="opt-desc">Regular but not constant use</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'occasionally')">
+              <span class="opt-emoji">🗓️</span>
+              <div class="opt-label">Occasionally</div>
+              <div class="opt-desc">When I need it for specific projects</div>
+            </div>
+            <div class="quiz-option" onclick="selectOption(this, 'tryout')">
+              <span class="opt-emoji">👀</span>
+              <div class="opt-label">Just Trying It Out</div>
+              <div class="opt-desc">Exploring what AI can do</div>
+            </div>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn secondary" onclick="prevStep()">← Back</button>
+            <button class="quiz-btn primary" onclick="showResults()" id="next-5" disabled>See My Results 🎉</button>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="quiz-step" id="step-results">
+          <div style="text-align:center;margin-bottom:32px;">
+            <div style="font-size:3rem;margin-bottom:12px;">🎉</div>
+            <h2 style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;margin-bottom:8px;">Your Perfect Free AI Tools</h2>
+            <p style="color:var(--muted);">Based on your answers, here are our top picks for you</p>
+          </div>
+          <div id="results-content"></div>
+          <div style="text-align:center;margin-top:32px;">
+            <button class="quiz-btn secondary" style="max-width:200px;margin:0 auto;" onclick="restartQuiz()">Retake Quiz</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    let currentStep = 1;
+    const totalSteps = 5;
+    const answers = {};
+
+    function updateProgress() {
+      const pct = ((currentStep - 1) / totalSteps) * 100;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    }
+
+    function selectOption(el, value) {
+      el.closest('.quiz-options').querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      answers[`step${currentStep}`] = value;
+      const nextBtn = document.getElementById(`next-${currentStep}`);
+      if (nextBtn) nextBtn.disabled = false;
+    }
+
+    function nextStep() {
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      currentStep++;
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+      updateProgress();
+    }
+
+    function prevStep() {
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      currentStep--;
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+      updateProgress();
+    }
+
+    function getRecommendations() {
+      const use = answers.step1;
+      const who = answers.step2;
+      const tech = answers.step3;
+      const priority = answers.step4;
+
+      const categoryMap = {
+        writing: ['Writing', 'Chatbot'],
+        design: ['Design', 'Image Generation'],
+        coding: ['Coding', 'Chatbot'],
+        research: ['Research', 'Chatbot']
+      };
+
+      const cats = categoryMap[use] || ['Chatbot'];
+
+      let pool = TOOLS.filter(t => cats.includes(t.category));
+
+      if (priority === 'unlimited') pool = pool.filter(t => t.free_tier.toLowerCase().includes('unlimited') || t.free_tier.toLowerCase().includes('forever'));
+      if (priority === 'quality') pool = pool.sort((a, b) => b.rating - a.rating);
+      if (tech === 'beginner') pool = pool.filter(t => !t.tags.includes('api') && !t.tags.includes('developers'));
+
+      pool = pool.sort((a, b) => b.rating - a.rating);
+
+      const seen = new Set();
+      const unique = pool.filter(t => { if (seen.has(t.id)) return false; seen.add(t.id); return true; });
+
+      return unique.slice(0, 3);
+    }
+
+    function showResults() {
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      document.getElementById('progress-bar').style.width = '100%';
+
+      const recs = getRecommendations();
+      const labels = ['🥇 Best Match', '🥈 Runner Up', '🥉 Also Great'];
+
+      const whyMap = {
+        writing: 'Great for writing, content creation, and text-based tasks.',
+        design: 'Perfect for visual creation, design, and image generation.',
+        coding: 'Excellent for developers and coding assistance.',
+        research: 'Ideal for research, learning, and finding information.'
+      };
+
+      document.getElementById('results-content').innerHTML = recs.map((t, i) => `
+        <div class="result-card" style="${i === 0 ? '' : 'border-color:var(--border);'}">
+          <div class="result-rank">${labels[i]}</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+            <div style="font-size:2rem;">${categoryEmoji(t.category)}</div>
+            <div>
+              <div class="result-name">${t.name}</div>
+              <div class="result-tagline">${t.tagline}</div>
+            </div>
+          </div>
+          <div class="result-why">✅ ${whyMap[answers.step1] || 'A great all-round free AI tool.'} Free tier: <strong>${t.free_tier}</strong></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="${t.url}" target="_blank" rel="noopener" class="result-btn">Try ${t.name} Free →</a>
+            <a href="tool-detail.html?id=${t.id}" style="display:inline-flex;align-items:center;padding:11px 20px;border-radius:99px;border:1px solid var(--border);font-family:var(--font-head);font-weight:700;font-size:0.9rem;color:var(--text);">Learn More</a>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('step-results').classList.add('active');
+    }
+
+    function restartQuiz() {
+      document.getElementById('step-results').classList.remove('active');
+      Object.keys(answers).forEach(k => delete answers[k]);
+      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+      document.querySelectorAll('.quiz-btn.primary').forEach(b => b.disabled = true);
+      currentStep = 1;
+      updateProgress();
+      document.getElementById('step-1').classList.add('active');
+    }
+
+    updateProgress();
+  </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top 10 Free AI Tools by Category — ZeroPayAI</title>
+  <meta name="description" content="Top 10 free AI tools ranked by category. Best free chatbots, image generators, video editors, writing tools, and more in 2026." />
+  <link rel="canonical" href="https://zeropayai.netlify.app/top10.html" />
+  <meta name="google-site-verification" content="KK3UUOpEy3ErOD5eJbiTCEjrXGXTsG2acw9eWnKcE2Q" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .top10-cats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .top10-list { display: flex; flex-direction: column; gap: 12px; }
+    .top10-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; }
+    .top10-item:hover { transform: translateX(6px); border-color: rgba(0,255,136,0.2); }
+    .rank { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--muted); min-width: 36px; }
+    .rank.gold { color: #fbbf24; }
+    .rank.silver { color: #94a3b8; }
+    .rank.bronze { color: #cd7c3a; }
+    .top10-icon { font-size: 1.8rem; }
+    .top10-info { flex: 1; }
+    .top10-name { font-family: var(--font-head); font-weight: 700; font-size: 1rem; margin-bottom: 3px; }
+        .top10-tagline { color: var(--muted); font-size: 0.83rem; }
+    .top10-rating { display: flex; align-items: center; gap: 4px; font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+    .cat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; margin-top: 48px; }
+    .cat-header h2 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 700; }
+    .cat-header .cat-emoji { font-size: 1.8rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+      <button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid rgba(255,255,255,0.12);border-radius:99px;padding:7px 14px;cursor:pointer;font-size:1rem;color:var(--text);transition:all 0.2s;">🌙</button>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">🏆 Top 10 Free AI Tools</h1>
+          <p style="color:var(--muted);font-size:0.88rem;margin-top:6px;">Ranked by rating across every category</p>
+        </div>
+      </div>
+
+      <!-- Category filter pills -->
+      <div class="top10-cats" id="top10-cats"></div>
+
+      <!-- AdSense Slot -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <!-- Paste AdSense code here after approval -->
+      </div>
+
+      <!-- Lists -->
+      <div id="top10-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    let activeCat = 'All';
+
+    function getRankClass(i) {
+      if (i === 0) return 'gold';
+      if (i === 1) return 'silver';
+      if (i === 2) return 'bronze';
+      return '';
+    }
+
+    function renderTop10() {
+      const cats = activeCat === 'All'
+        ? CATEGORIES.filter(c => c !== 'All')
+        : [activeCat];
+
+      document.getElementById('top10-content').innerHTML = cats.map(cat => {
+        const tools = TOOLS
+          .filter(t => t.category === cat)
+          .sort((a, b) => b.rating - a.rating)
+          .slice(0, 10);
+
+        if (!tools.length) return '';
+
+        return `
+          <div class="cat-header">
+            <span class="cat-emoji">${categoryEmoji(cat)}</span>
+            <h2>Top Free ${cat} Tools</h2>
+          </div>
+          <div class="top10-list">
+            ${tools.map((t, i) => `
+              <div class="top10-item" onclick="window.location='tool-detail.html?id=${t.id}'">
+                <div class="rank ${getRankClass(i)}">#${i + 1}</div>
+                <div class="top10-icon">${categoryEmoji(t.category)}</div>
+                <div class="top10-info">
+                  <div class="top10-name">${t.name} ${t.badge ? `<span class="tool-badge ${badgeClass(t.badge)}" style="font-size:0.65rem;">${t.badge}</span>` : ''}</div>
+                  <div class="top10-tagline">${t.tagline}</div>
+                  <div class="free-tag" style="margin-top:4px;">✓ ${t.free_tier}</div>
+                </div>
+                <div class="top10-rating"><span style="color:#fbbf24;">★</span> ${t.rating}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Build category pills
+    document.getElementById('top10-cats').innerHTML = CATEGORIES.map(cat => `
+      <button class="cat-pill ${cat === activeCat ? 'active' : ''}" onclick="
+        activeCat='${cat}';
+        document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+        this.classList.add('active');
+        renderTop10();
+      ">${cat === 'All' ? '🌐 All Categories' : categoryEmoji(cat) + ' ' + cat}</button>
+    `).join('');
+
+    renderTop10();
+  </script>
+</body>
+</html>

@@ -36,3 +36,28 @@
     <changefreq>yearly</changefreq>
   </url>
 </urlset>
+<url>
+  <loc>https://zeropayai.netlify.app/blog.html</loc>
+  <priority>0.8</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://zeropayai.netlify.app/blog-post.html</loc>
+  <priority>0.7</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://zeropayai.netlify.app/compare.html</loc>
+  <priority>0.8</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://zeropayai.netlify.app/top10.html</loc>
+  <priority>0.8</priority>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://zeropayai.netlify.app/quiz.html</loc>
+  <priority>0.7</priority>
+  <changefreq>monthly</changefreq>
+</url>

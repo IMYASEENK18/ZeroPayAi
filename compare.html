@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compare Free AI Tools — ZeroPayAI</title>
+  <meta name="description" content="Compare free AI tools side by side. Find out which AI tool is best for your needs — ChatGPT vs Claude, Canva vs Adobe, and more." />
+  <link rel="canonical" href="https://zeropayai.netlify.app/compare.html" />
+  <meta name="google-site-verification" content="KK3UUOpEy3ErOD5eJbiTCEjrXGXTsG2acw9eWnKcE2Q" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .compare-selectors { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin-bottom: 36px; }
+    .compare-select { background: var(--bg3); border: 1px solid var(--border); color: var(--text); border-radius: 12px; padding: 14px 18px; font-family: var(--font-body); font-size: 0.95rem; outline: none; width: 100%; cursor: pointer; transition: border-color 0.2s; }
+    .compare-select:focus { border-color: rgba(0,255,136,0.4); }
+    .compare-select option { background: var(--bg2); }
+    .vs-badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 99px; padding: 10px 16px; font-family: var(--font-head); font-weight: 800; font-size: 0.9rem; color: var(--muted); text-align: center; white-space: nowrap; }
+    .compare-btn { width: 100%; background: var(--accent); color: #000; border: none; border-radius: 99px; padding: 14px; font-family: var(--font-head); font-weight: 700; font-size: 1rem; cursor: pointer; margin-bottom: 36px; transition: opacity 0.2s; }
+    .compare-btn:hover { opacity: 0.88; }
+    .compare-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .compare-table th { padding: 18px 20px; text-align: left; background: var(--bg3); font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; }
+    .compare-table th:first-child { color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .compare-table td { padding: 16px 20px; border-top: 1px solid var(--border); font-size: 0.9rem; line-height: 1.5; color: var(--text); vertical-align: top; }
+    .compare-table td:first-child { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+    .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .winner-badge { display: inline-block; background: rgba(0,255,136,0.1); color: var(--accent); font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; margin-left: 6px; }
+    .compare-header { display: flex; align-items: center; gap: 12px; }
+    .compare-emoji { font-size: 1.8rem; }
+    .popular-comparisons { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 36px; }
+    .comp-pill { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: border-color 0.2s, background 0.2s; text-align: center; }
+    .comp-pill:hover { border-color: rgba(0,255,136,0.3); background: rgba(0,255,136,0.05); color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="blog.html">Blog</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+      <button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid rgba(255,255,255,0.12);border-radius:99px;padding:7px 14px;cursor:pointer;font-size:1rem;color:var(--text);transition:all 0.2s;">🌙</button>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">⚔️ Compare AI Tools</h1>
+          <p style="color:var(--muted);font-size:0.88rem;margin-top:6px;">Compare any two free AI tools side by side</p>
+        </div>
+      </div>
+
+      <!-- Popular Comparisons -->
+      <p style="color:var(--muted);font-size:0.85rem;margin-bottom:12px;">Popular comparisons:</p>
+      <div class="popular-comparisons" id="popular-comps"></div>
+
+      <!-- Selectors -->
+      <div class="compare-selectors">
+        <select class="compare-select" id="tool-a"></select>
+        <div class="vs-badge">VS</div>
+        <select class="compare-select" id="tool-b"></select>
+      </div>
+      <button class="compare-btn" onclick="runCompare()">Compare Tools →</button>
+
+      <!-- AdSense Slot -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <!-- Paste AdSense code here after approval -->
+      </div>
+
+      <!-- Results -->
+      <div id="compare-result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const selectA = document.getElementById('tool-a');
+    const selectB = document.getElementById('tool-b');
+
+    TOOLS.forEach((t, i) => {
+      [selectA, selectB].forEach((sel, idx) => {
+        const opt = document.createElement('option');
+        opt.value = t.id;
+        opt.textContent = t.name;
+        if (i === 0 && idx === 0) opt.selected = true;
+        if (i === 1 && idx === 1) opt.selected = true;
+        sel.appendChild(opt);
+      });
+    });
+
+    const POPULAR = [
+      ['chatgpt', 'claude'],
+      ['canva-ai', 'adobe-firefly'],
+      ['elevenlabs', 'mubert'],
+      ['capcut', 'runway'],
+      ['grammarly', 'quillbot'],
+      ['leonardo-ai', 'ideogram']
+    ];
+
+    document.getElementById('popular-comps').innerHTML = POPULAR.map(([a, b]) => {
+      const ta = TOOLS.find(t => t.id === a);
+      const tb = TOOLS.find(t => t.id === b);
+      if (!ta || !tb) return '';
+      return `<div class="comp-pill" onclick="quickCompare('${a}','${b}')">${ta.name} vs ${tb.name}</div>`;
+    }).join('');
+
+    function quickCompare(a, b) {
+      selectA.value = a;
+      selectB.value = b;
+      runCompare();
+      document.getElementById('compare-result').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function runCompare() {
+      const ta = TOOLS.find(t => t.id === selectA.value);
+      const tb = TOOLS.find(t => t.id === selectB.value);
+      if (!ta || !tb || ta.id === tb.id) {
+        document.getElementById('compare-result').innerHTML = `<p style="color:var(--muted);text-align:center;">Please select two different tools.</p>`;
+        return;
+      }
+
+      const rows = [
+        { label: 'Category', a: ta.category, b: tb.category },
+        { label: 'Free Tier', a: ta.free_tier, b: tb.free_tier },
+        { label: 'Rating', a: `★ ${ta.rating} (${ta.reviews.toLocaleString()} reviews)`, b: `★ ${tb.rating} (${tb.reviews.toLocaleString()} reviews)`, winnerFn: (a, b) => a.rating >= b.rating ? 'a' : 'b' },
+        { label: 'Best For', a: ta.tags.join(', '), b: tb.tags.join(', ') },
+        { label: 'Tagline', a: ta.tagline, b: tb.tagline },
+        { label: 'Visit', a: `<a href="${ta.url}" target="_blank" rel="noopener" style="color:var(--accent)">Open ${ta.name} →</a>`, b: `<a href="${tb.url}" target="_blank" rel="noopener" style="color:var(--accent)">Open ${tb.name} →</a>` }
+      ];
+
+      const winner = ta.rating >= tb.rating ? ta : tb;
+
+      document.getElementById('compare-result').innerHTML = `
+        <div style="background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:0.9rem;">
+          🏆 <strong style="color:var(--accent)">${winner.name}</strong> edges ahead with a higher rating — but both tools have genuine free tiers worth trying!
+        </div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th><div class="compare-header"><span class="compare-emoji">${categoryEmoji(ta.category)}</span>${ta.name}</div></th>
+              <th><div class="compare-header"><span class="compare-emoji">${categoryEmoji(tb.category)}</span>${tb.name}</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.map(r => {
+              const w = r.winnerFn ? r.winnerFn(ta, tb) : null;
+              return `<tr>
+                <td>${r.label}</td>
+                <td>${r.a}${w === 'a' ? '<span class="winner-badge">Winner</span>' : ''}</td>
+                <td>${r.b}${w === 'b' ? '<span class="winner-badge">Winner</span>' : ''}</td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;">
+          <a href="tool-detail.html?id=${ta.id}" style="display:block;text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px;font-family:var(--font-head);font-weight:700;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,255,136,0.3)'" onmouseout="this.style.borderColor='var(--border)'">View ${ta.name} Details →</a>
+          <a href="tool-detail.html?id=${tb.id}" style="display:block;text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:14px;font-family:var(--font-head);font-weight:700;color:var(--text);transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(0,255,136,0.3)'" onmouseout="this.style.borderColor='var(--border)'">View ${tb.name} Details →</a>
+        </div>
+      `;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('a') && params.get('b')) {
+      selectA.value = params.get('a');
+      selectB.value = params.get('b');
+      runCompare();
+    }
+  </script>
+</body>
+</html>

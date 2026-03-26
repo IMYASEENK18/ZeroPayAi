@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools Blog — Tips, Guides & News | ZeroPayAI</title>
+  <meta name="description" content="Read the latest guides, tips, and news about free AI tools. Learn how to get the most out of ChatGPT, Claude, Canva AI, and more — all for free." />
+  <link rel="canonical" href="https://zeropayai.netlify.app/blog.html" />
+  <meta name="google-site-verification" content="KK3UUOpEy3ErOD5eJbiTCEjrXGXTsG2acw9eWnKcE2Q" />
+  <meta property="og:title" content="AI Tools Blog — ZeroPayAI" />
+  <meta property="og:description" content="Tips, guides and news about the best free AI tools." />
+  <meta property="og:url" content="https://zeropayai.netlify.app/blog.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.svg" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+    .blog-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
+    .blog-card:hover { transform: translateY(-4px); border-color: rgba(0,255,136,0.2); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .blog-thumb { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; background: var(--bg3); }
+    .blog-body { padding: 20px; }
+    .blog-tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 8px; }
+    .blog-title { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; line-height: 1.4; margin-bottom: 10px; }
+    .blog-excerpt { color: var(--muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 14px; }
+    .blog-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; color: var(--muted); }
+    .read-more { color: var(--accent); font-weight: 600; font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ZeroPay<span>AI</span></a>
+    <div class="nav-links">
+      <a href="tools.html">Browse Tools</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="submit.html">Submit Tool</a>
+      <a href="submit.html" class="btn-nav">+ Submit</a>
+      <button id="theme-toggle" onclick="toggleTheme()" style="background:none;border:1px solid rgba(255,255,255,0.12);border-radius:99px;padding:7px 14px;cursor:pointer;font-size:1rem;color:var(--text);transition:all 0.2s;">🌙</button>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <div class="section-header">
+        <div>
+          <h1 class="section-title">📝 AI Tools Blog</h1>
+          <p style="color:var(--muted);font-size:0.88rem;margin-top:6px;">Guides, tips and news about the best free AI tools</p>
+        </div>
+      </div>
+
+      <!-- AdSense Slot -->
+      <div style="text-align:center;margin-bottom:28px;">
+        <!-- Paste AdSense code here after approval -->
+      </div>
+
+      <div class="blog-grid" id="blog-grid"></div>
+    </section>
+
+    <section>
+      <div class="newsletter">
+        <h2>Get Weekly AI Tool Guides</h2>
+        <p>New tutorials and free AI tool reviews every week.</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit">Subscribe →</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">ZeroPayAI</div>
+    <p>© 2026 ZeroPayAI. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="tools.html">Browse</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="tools-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const POSTS = [
+      {
+        id: "best-free-ai-tools-2026",
+        tag: "Guide",
+        emoji: "🛠️",
+        title: "The 10 Best Free AI Tools You Need in 2026",
+        excerpt: "We tested 50+ AI tools so you don't have to. Here are the 10 best free AI tools across every category — no credit card needed.",
+        date: "Mar 20, 2026",
+        readTime: "5 min read"
+      },
+      {
+        id: "chatgpt-vs-claude",
+        tag: "Comparison",
+        emoji: "⚔️",
+        title: "ChatGPT vs Claude — Which Free AI is Better in 2026?",
+        excerpt: "Both are free. Both are powerful. But which one should you use? We compare ChatGPT and Claude head to head across 8 key categories.",
+        date: "Mar 22, 2026",
+        readTime: "7 min read"
+      },
+      {
+        id: "free-ai-video-tools",
+        tag: "Top 10",
+        emoji: "🎬",
+        title: "10 Best Free AI Video Editors in 2026",
+        excerpt: "From CapCut to Runway ML — here are the best free AI video tools for creators, students, and marketers in 2026.",
+        date: "Mar 23, 2026",
+        readTime: "6 min read"
+      },
+      {
+        id: "free-ai-writing-tools",
+        tag: "Guide",
+        emoji: "✍️",
+        title: "Best Free AI Writing Tools for Students in 2026",
+        excerpt: "Struggling with essays, research, or grammar? These free AI writing tools will save you hours every week — completely free.",
+        date: "Mar 24, 2026",
+        readTime: "5 min read"
+      },
+      {
+        id: "ai-tools-for-freelancers",
+        tag: "Guide",
+        emoji: "💼",
+        title: "7 Free AI Tools Every Freelancer Should Use in 2026",
+        excerpt: "Freelancers who use AI earn more and work less. Here are 7 free AI tools that will supercharge your freelancing business.",
+        date: "Mar 25, 2026",
+        readTime: "6 min read"
+      },
+      {
+        id: "free-ai-image-generators",
+        tag: "Top 10",
+        emoji: "🖼️",
+        title: "Top 10 Free AI Image Generators in 2026",
+        excerpt: "Generate stunning AI images for free. We ranked the best free AI image generators by quality, speed, and daily limits.",
+        date: "Mar 26, 2026",
+        readTime: "5 min read"
+      }
+    ];
+
+    document.getElementById('blog-grid').innerHTML = POSTS.map(p => `
+      <div class="blog-card" onclick="window.location='blog-post.html?id=${p.id}'">
+        <div class="blog-thumb">${p.emoji}</div>
+        <div class="blog-body">
+          <div class="blog-tag">${p.tag}</div>
+          <div class="blog-title">${p.title}</div>
+          <div class="blog-excerpt">${p.excerpt}</div>
+          <div class="blog-meta">
+            <span>${p.date} · ${p.readTime}</span>
+            <span class="read-more">Read →</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
