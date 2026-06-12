@@ -214,6 +214,19 @@ const TOOLS = [
     free_tier: "Free (limited credits)"
   },
   {
+    id: "imagineclip",
+    name: "ImagineClip",
+    tagline: "AI video generator for social clips and avatar videos",
+    description: "ImagineClip creates social-ready AI videos, avatar clips, and stylized effects from prompts and images. New users receive 50 free credits upon registration.",
+    category: "Video",
+    tags: ["video", "text to video", "avatar", "social media"],
+    url: "https://imagineclip.com",
+    rating: 0,
+    reviews: 0,
+    badge: "Free Credits",
+    free_tier: "Free (50 signup credits)"
+  },
+  {
     id: "clipchamp",
     name: "Clipchamp",
     tagline: "Microsoft's free AI video editor built into Windows",
