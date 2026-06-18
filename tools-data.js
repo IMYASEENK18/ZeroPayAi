@@ -429,6 +429,19 @@ const TOOLS = [
     badge: "Free Unlimited",
     free_tier: "Unlimited free"
   },
+  {
+    id: "roblox-gui-maker",
+    name: "Roblox GUI Maker",
+    tagline: "Free Roblox GUI maker for ScreenGui layouts and Lua UI planning",
+    description: "Roblox GUI Maker helps Roblox Studio creators plan game interfaces before building them by hand. Describe a HUD, menu, shop, inventory screen, or mobile UI and get a Roblox-style ScreenGui layout plan, component hierarchy, JSON blueprint, and Lua starter code ideas.",
+    category: "Coding",
+    tags: ["roblox", "gui maker", "lua", "game ui"],
+    url: "https://robloxguimaker.dev/",
+    rating: 4.6,
+    reviews: 120,
+    badge: "Free",
+    free_tier: "Free forever"
+  },
 
   // ─── PRODUCTIVITY ───
   {
