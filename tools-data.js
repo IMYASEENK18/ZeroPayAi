@@ -239,6 +239,19 @@ const TOOLS = [
     badge: "Trending",
     free_tier: "Free (watermark)"
   },
+  {
+    id: "imagineclip",
+    name: "ImagineClip",
+    tagline: "AI video generator for avatar clips and social-ready videos",
+    description: "ImagineClip helps creators generate avatar clips, stylized scenes, and short social videos from prompts, images, and effects. A free plan is available for trying AI video generation workflows.",
+    category: "Video",
+    tags: ["video", "avatar", "text to video", "social media"],
+    url: "https://imagineclip.com",
+    rating: 4.6,
+    reviews: 1200,
+    badge: "New",
+    free_tier: "Free plan available"
+  },
 
   // ─── AUDIO ───
   {
