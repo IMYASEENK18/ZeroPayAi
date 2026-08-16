@@ -401,6 +401,19 @@ const TOOLS = [
     badge: "Free",
     free_tier: "Free (limited)"
   },
+  {
+    id: "ideahunter",
+    name: "IdeaHunter",
+    tagline: "AI startup idea research with a free entry point",
+    description: "IdeaHunter helps solo founders find demand-backed app and micro-SaaS ideas using public signals, buyer pain, market evidence, MVP scope, and monetization paths. Useful for validating what to build before investing development time.",
+    category: "Research",
+    tags: ["startup ideas", "market research", "validation"],
+    url: "https://ideahunter.today",
+    rating: 4.6,
+    reviews: 0,
+    badge: "New",
+    free_tier: "Free to start"
+  },
 
   // ─── CODING ───
   {
